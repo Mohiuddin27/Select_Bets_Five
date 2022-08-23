@@ -25,10 +25,10 @@
                         <div class="card" style="width: 90%;">
                             <img src="images/messi.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Lionel Messi</h5>
+                                <h5 class="card-title playerName">Lionel Messi</h5>
                                 <h6>36 Goals . 120 Assist
                                 </h6>
-                                <button type="submit" onclick="selectPlayer('messi')" id="messi" class="btn btn-sm w-100 mt-2 btn-primary"value="Lionel Messi">SELECT</button>
+                                <button type="submit" onclick="selectPlayer(this)"  class="btn btn-sm w-100 mt-2 btn-primary"value="Lionel Messi">SELECT</button>
                             </div>
                         </div>
 
@@ -37,11 +37,11 @@
                         <div class="card" style="width:90%">
                             <img src="images/k.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Renato Sanches
+                                <h5 class="card-title playerName">Renato Sanches
                                 </h5>
                                 <h6>36 Goals . 120 Assist
                                 </h6>
-                                <button type="submit" onclick="selectPlayer('renato')" id="renato" class="btn btn-sm w-100 mt-2 btn-primary" value="Renato Sanches">SELECT</button>
+                                <button type="submit" onclick="selectPlayer(this)"  class="btn btn-sm w-100 mt-2 btn-primary" value="Renato Sanches">SELECT</button>
                             </div>
                         </div>
 
@@ -50,11 +50,11 @@
                         <div class="card" style="width: 90%;">
                             <img src="images/m.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Kylian Mbappé
+                                <h5 class="card-title playerName">Kylian Mbappé
                                 </h5>
                                <h6>36 Goals . 120 Assist
                             </h6>
-                            <button type="submit" onclick="selectPlayer('mbappe')" id="mbappe" class="btn btn-sm w-100 mt-2 btn-primary" value="Kylian Mbappé">SELECT</button>
+                            <button type="submit" onclick="selectPlayer(this)"  class="btn btn-sm w-100 mt-2 btn-primary" value="Kylian Mbappé">SELECT</button>
                         </div>
                         </div>
 
@@ -63,11 +63,11 @@
                         <div class="card" style="width: 90%;">
                             <img src="images/neymar.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Neymar Jr
+                                <h5 class="card-title playerNmae">Neymar Jr
                                 </h5>
                                 <h6>36 Goals . 120 Assist
                                 </h6>
-                                <button type="submit" onclick="selectPlayer('neymar')"  id="neymar" class="btn btn-sm w-100 mt-2 btn-primary" value="Neymar Jr">SELECT</button>
+                                <button type="submit" onclick="selectPlayer(this)"   class="btn btn-sm w-100 mt-2 btn-primary" value="Neymar Jr">SELECT</button>
                             </div>
                         </div>
 
@@ -75,11 +75,11 @@
                         <div class="card" style="width: 90%;">
                             <img src="images/v.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Vítor Machado
+                                <h5 class="card-title playerName">Vítor Machado
                                 </h5>
                                 <h6>36 Goals . 120 Assist
                                 </h6>
-                                <button type="submit" id="vitor" onclick="selectPlayer('vitor')" class="btn btn-sm w-100 mt-2 btn-primary"value="Vítor Machado">SELECT</button>
+                                <button type="submit" id="vitor" onclick="selectPlayer(this)" class="btn btn-sm w-100 mt-2 btn-primary"value="Vítor Machado">SELECT</button>
                             </div>
                         </div>
 
@@ -87,11 +87,11 @@
                         <div class="card" style="width: 90%;">
                             <img src="images/s.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sergio Ramos
+                                <h5 class="card-title playerName">Sergio Ramos
                                 </h5>
                                 <h6>36 Goals . 120 Assist
                                 </h6>
-                                <button type="submit" onclick="selectPlayer('sergio')" id="sergio" class="btn btn-sm w-100 mt-2 btn-primary"value="Sergio Ramos
+                                <button type="submit" onclick="selectPlayer(this)"  class="btn btn-sm w-100 mt-2 btn-primary"value="Sergio Ramos
                                 ">SELECT</button>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
 
             </div>
             <div class="col-md-3">
-                <div class="card" style="height:327px">
+                <div class="card h-auto">
                     <div class="card-title text-center mt-3"><h4>Selected V</h4></div>
                     <div class="card-body text-center">
                         <ol id="list">
@@ -140,20 +140,20 @@
     <script>
 
         let count=0;
-        function selectPlayer(id){
+        function selectPlayer(name){
             count++;
             if(count>5){
                 alert('You have Selected 5 Players. You are done!')
             }
             else{
-                const playerName=document.getElementById(id).value;
+                const playerName = name.parentNode.children[0].innerText;
                 let ol = document.getElementById("list");
                 let li = document.createElement("li");
                 li.appendChild(document.createTextNode(playerName));
                 ol.appendChild(li);
-                document.getElementById(id).disabled=true;
-                document.getElementById(id).style.background = 'rgba(197, 235, 252, 0.653)';
-                document.getElementById(id).style.border = 'none';
+                name.disabled=true;
+                name.style.background = 'rgba(197, 235, 252, 0.653)';
+                name.style.border = 'none';
 
             }
         }
